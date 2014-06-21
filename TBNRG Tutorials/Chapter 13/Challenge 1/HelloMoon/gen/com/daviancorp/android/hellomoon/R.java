@@ -1155,9 +1155,10 @@ containing a value of this type.
         public static final int action_settings=0x7f0b000f;
         public static final int app_name=0x7f0b000d;
         public static final int hello_world=0x7f0b000e;
-        public static final int hellomoon_description=0x7f0b0013;
+        public static final int hellomoon_description=0x7f0b0014;
         public static final int hellomoon_pause=0x7f0b0012;
         public static final int hellomoon_play=0x7f0b0010;
+        public static final int hellomoon_resume=0x7f0b0013;
         public static final int hellomoon_stop=0x7f0b0011;
     }
     public static final class style {

@@ -14,11 +14,20 @@ public class HelloMoonFragment extends Fragment {
 	private Button mStopButton;
 	private Button mPauseButton;
 	
+	private String mPauseResume;
+	
 	private void revertResumeText() {
 		if (mPauseButton.getText().equals("Resume")) {
-			mPauseButton.setText("Pause");
+			setPauseButtonText("Pause");
 		}
 	}
+	
+	private void setPauseButtonText(String text) {
+		if (text == null) text = "Pause";
+		mPauseResume = text;
+		mPauseButton.setText(mPauseResume);
+	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent,
@@ -42,18 +51,19 @@ public class HelloMoonFragment extends Fragment {
 		});
 		
 		mPauseButton = (Button)v.findViewById(R.id.hellomoon_pauseButton);
+		setPauseButtonText(mPauseResume);
 		mPauseButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Pause
 				if ((mPauseButton.getText().equals("Pause")) && 
 						(mPlayer.hasPlayed())) {
 					mPlayer.pause();
-					mPauseButton.setText("Resume");
+					setPauseButtonText("Resume");
 				}
 				// Resume
 				else if (mPauseButton.getText().equals("Resume")) {
 					mPlayer.start();
-					mPauseButton.setText("Pause");
+					setPauseButtonText("Pause");
 				}
 				
 			}
